@@ -44,7 +44,7 @@ const GameCanvas = forwardRef<GameCanvasRef, GameCanvasProps>(({ onGameComplete 
         }
     }, []);
 
-    const handlePointClick = useCallback((pointId: string, label: number, anim: Animation) => {
+    const handlePointClick = useCallback((label: number, anim: Animation) => {
         if (label === nextExpectedLabel.current) {
             // Done Game
             if (label === points.length) {
@@ -180,7 +180,7 @@ const MemoizedPoints = memo(({
     disabled
 }: {
     points: PointType[],
-    handlePointClick: (pointId: string, label: number, anim: Animation) => void,
+    handlePointClick: (label: number, anim: Animation) => void,
     setPointRef: (index: number) => (pointRef: PointRef | null) => void,
     disabled: boolean,
 }) => {

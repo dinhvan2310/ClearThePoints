@@ -7,7 +7,7 @@ import type { PointType } from '../utils/types';
 
 interface PointProps {
   point: PointType;
-  onClick: (id: string, label: number, anim: Animation) => void;
+  onClick: (label: number, anim: Animation) => void;
   disabled?: boolean;
 }
 
@@ -60,8 +60,8 @@ const Point = forwardRef<PointRef, PointProps>(function Point({ point, onClick, 
 
     animationRef.current = anim;
     anim.start()
-    onClick(point.id, point.label, anim);
-  }, [point.id, point.label, onClick]);
+    onClick(point.label, anim);
+  }, [point.label, onClick]);
 
   return (
     <Group
